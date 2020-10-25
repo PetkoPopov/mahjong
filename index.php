@@ -60,6 +60,7 @@ if(!isset($_SESSION['start']))  $_SESSION['start']= time();
             echo "<h1>remember the box's color and number </h1>";
         }
         }
+        echo "HELLO TEST FOR BRANCH";
 //        var_dump($_GET);
 //showColor($_SESSION['colors']);
         ?>
