@@ -41,7 +41,7 @@ echo '<br/>';
         } else {
 
 
-            if (array_key_exists($index, $_GET)) {
+            if (array_key_exists($index, $_GET)) {//така е оредставено натискането на бутона 
 
                 if (isset($_SESSION['last']) && $_SESSION['last'] == $color && $index != $_SESSION['lastIndex']) {
                     
@@ -70,6 +70,7 @@ echo '<br/>';
 
         </td>
         <?php
+        if(array_key_exists($index,$_GET)){$currentColor[0]=$valButton;}
     }
     echo "</tr>";
     }
@@ -81,4 +82,10 @@ echo '<br/>';
        
          timeForWinTheGame($_SESSION['start'],$stop);
     }
+    if(isset($currentColor)){
     ?>
+        <a><h2 style="background-color: darkcyan;width: 122px;height:86px;color: darkred">ЦВЕТА СЕ КАЗВА
+            <?=$currentColor[0];?></h2>
+    <br/> </a><?php
+    
+    }

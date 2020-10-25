@@ -88,3 +88,6 @@ function timeForWinTheGame(int $start,int $stop){
 <div><h1 style="background-color: chocolate;width:100px;height: 66px;color: #6600cc;position: relative;bottom: auto"><?=$yimaForWin?></h1></div>
         <?php
 }
+function showAdvice($tipsArr){
+    echo $tipsArr[rand(0,count($tipsArr)-1)];
+}

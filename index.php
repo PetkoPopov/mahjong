@@ -25,10 +25,13 @@ if(!isset($_SESSION['start']))  $_SESSION['start']= time();
                red; width: 155px;height:66px;bottom: 233px"/>-->
         <input type="submit" name="showAnswer" style="width:155px;height: 66px;background-color: brown " value="show answer"/>
         <input type="submit" name="showTip" style="width:155px;height: 66px;background-color: darkgreen" value="showTip"/>
+        <input type="submit" name="hidden"  style="background-color: darkseagreen;position: absolute;bottom:0px;left:1000px" value=".">
+        <input type="submit" name="hidden"  style="background-color: darkseagreen;width: 24px;position: absolute;bottom:606px;left:402px" value="O">
        <body style="background-color: darkseagreen">
            <h1>ПОСОЧЕТЕ КУТИЙКИТЕ С ЕДНАКВИ ЦВЕТОВЕ</h1>
         <?php
         require_once './table/arry_with_colors_GENERATE.php';
+        require_once './Tips/tips.php';
         if(!empty($_GET['rows'])){
           
             if(!isset($_SESSION['rows'])){
@@ -56,12 +59,12 @@ if(!isset($_SESSION['start']))  $_SESSION['start']= time();
 //            showColor($_SESSION['colors']);
             die('START NEW GAME');
         }
-        if(isset($_GET['showTips'])){
-            echo "<h1>remember the box's color and number </h1>";
+        if(!empty($_GET['showTip'])){
+            showAdvice($tipsArr);
         }
         }
-        echo "HELLO TEST FOR BRANCH";
-//        var_dump($_GET);
+        
+        
 //showColor($_SESSION['colors']);
         ?>
         
