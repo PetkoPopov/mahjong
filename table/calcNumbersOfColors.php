@@ -45,20 +45,46 @@ function showColor($color2=[]){
 }
 
 }
-//$row=3;
-//$r=calcArrWithColors($colorArr, $row);
-//showColor($r);
-//echo'======================<br/>';
-////    $center=($row-3)/2+2;
-////    $rpls=(($center-1)*$row)+$center-1;//тука е центъра
-////    $index=array_search('#000000',$r);
-////    $rpls2=$arr[$rpls];//стойността на центъра
-////    array_splice($r, $index, 1);//взвемаме стойността от центъра и я заместаме където са 6 нули
-////    
-////    array_splice($r,$rpls,0,'#000000');
-//$r=setSessionColor($r,$row);
-//showColor($r);
-//  
+function checkForWin(array $arr,$row){
+    if($row%2==0){
+                        if(count($arr)==$row*$row)
+                        {
+                        ?>
+<h2><a style="background-color: darkorange;width:166px;height: 88px">CONGRATULATION YOU WIN</a></h2>;
+                        <?php 
+                        return true;
+                        }
+                    }else{
+                        if(count($arr)==$row*$row-1)
+                        {
+                        ?>
+<h2><a style="background-color: darkorange;width:166px;height: 88px">CONGRATULATION YOU WIN</a></h2>;
+                        <?php
+                        return true;
+                        }
+                    }
+                    return false;
+} 
 
 
+function showTAbleWithColors($arrWithColors,$row){
+    echo '<table>';
+    for($i=1;$i<=$row;$i++){
+        echo '<tr>';
+        for($e=1;$e<=$row;$e++){
+            $index=$i.$e;
+            ?>
+<td style="background-color: <?=$arrWithColors[$index];?>;width:77px;height: 44px"><?=$index?></td>
+                <?php
+        }
+        echo '</tr>';
+    }
+    echo'</table>';
+}
 
+function timeForWinTheGame(int $start,int $stop){
+    $yimaForWin= $stop-$start;
+    ?>
+<div><h1 style="background-color: chocolate;width:100px;height: 66px;color: #6600cc;position: relative;bottom: auto"><?=$yimaForWin?></h1></div>
+        <?php
+}

@@ -1,9 +1,13 @@
 <?php
 session_start();
+
+if(!isset($_SESSION['start']))
+$_SESSION['start']= time();
+
 if(!empty($_GET['newGame'])&&$_GET['newGame']=="NEW_GAME"){
     session_destroy();
  session_start();
-  
+if(!isset($_SESSION['start']))  $_SESSION['start']= time();
 }
 ?>
         <meta charset="UTF-8">
@@ -15,7 +19,7 @@ if(!empty($_GET['newGame'])&&$_GET['newGame']=="NEW_GAME"){
         }else{
             echo 4;
         }
-        ?>" min="4" max="7" required>
+        ?>" min="3" max="9" required>
         <input type="submit" style="background-color: cadetblue;width:155px;height: 66px;" value="NEW_GAME" name="newGame"/>
 <!--        <input type="submit" name="newGame" value="NEW_GAME" style="position: absolute; left: 685px; background-color: 
                red; width: 155px;height:66px;bottom: 233px"/>-->
@@ -48,10 +52,11 @@ if(!empty($_GET['newGame'])&&$_GET['newGame']=="NEW_GAME"){
             require_once './table/calcNumbersOfColors.php';
         require_once './table/create_table.php';
         if(isset($_GET['showAnswer'])){
-            showColor($_SESSION['colors']);
+            showTAbleWithColors($_SESSION['colors'], $row);
+//            showColor($_SESSION['colors']);
             die('START NEW GAME');
         }
-        if(isset($_GET['showAnswer'])){
+        if(isset($_GET['showTips'])){
             echo "<h1>remember the box's color and number </h1>";
         }
         }

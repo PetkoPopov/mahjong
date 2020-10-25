@@ -49,9 +49,7 @@ echo '<br/>';
                     $_SESSION['colors'][$_SESSION['lastIndex']] = '#333333';
                     $_SESSION['out'][] = $index;
                     $_SESSION['out'][] = $_SESSION['lastIndex'];
-                    if(count($_SESSION['out'])==$row*$row-1){
-                        echo "WIN";
-                    }
+                    
                 }
 
                 $_SESSION['lastIndex'] = $index;
@@ -77,4 +75,10 @@ echo '<br/>';
     }
 
     echo "</table>";
+    $win=checkForWin($_SESSION['out'], $row);
+    if($win==true){
+         $stop=time();
+       
+         timeForWinTheGame($_SESSION['start'],$stop);
+    }
     ?>
