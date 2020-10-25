@@ -8,19 +8,21 @@ if(!empty($_GET['newGame'])&&$_GET['newGame']=="NEW_GAME"){
 ?>
         <meta charset="UTF-8">
         <title>mahjong</title>
-    </head>
+        <center></head>
     <form >
-        <input type="number" name="rows" style="width:155px;height: 66px;" value="<?php if(isset($_GET['rows'])){
+        <input type="number" name="rows" style="width:155px;height: 66px;background-color: bisque" value="<?php if(isset($_GET['rows'])){
      echo $_GET['rows'];
         }else{
             echo 4;
         }
-?>" />
+        ?>" min="4" max="7" required>
         <input type="submit" style="background-color: cadetblue;width:155px;height: 66px;" value="NEW_GAME" name="newGame"/>
 <!--        <input type="submit" name="newGame" value="NEW_GAME" style="position: absolute; left: 685px; background-color: 
                red; width: 155px;height:66px;bottom: 233px"/>-->
-   
+        <input type="submit" name="showAnswer" style="width:155px;height: 66px;background-color: brown " value="show answer"/>
+        <input type="submit" name="showTip" style="width:155px;height: 66px;background-color: darkgreen" value="showTip"/>
        <body style="background-color: darkseagreen">
+           <h1>ПОСОЧЕТЕ КУТИЙКИТЕ С ЕДНАКВИ ЦВЕТОВЕ</h1>
         <?php
         require_once './table/arry_with_colors_GENERATE.php';
         if(!empty($_GET['rows'])){
@@ -45,11 +47,17 @@ if(!empty($_GET['newGame'])&&$_GET['newGame']=="NEW_GAME"){
         if(isset($row)){
             require_once './table/calcNumbersOfColors.php';
         require_once './table/create_table.php';
-        
+        if(isset($_GET['showAnswer'])){
+            showColor($_SESSION['colors']);
+            die('START NEW GAME');
+        }
+        if(isset($_GET['showAnswer'])){
+            echo "<h1>remember the box's color and number </h1>";
+        }
         }
 //        var_dump($_GET);
 //showColor($_SESSION['colors']);
         ?>
         
-    </body>
+       </body></center>
     </form>
