@@ -43,9 +43,12 @@ if(!empty($_GET['newGame'])&&$_GET['newGame']=="NEW_GAME"){
         }
         
         if(isset($row)){
+            require_once './table/calcNumbersOfColors.php';
         require_once './table/create_table.php';
+        
         }
-        var_dump($_GET);
+//        var_dump($_GET);
+//showColor($_SESSION['colors']);
         ?>
         
     </body>
